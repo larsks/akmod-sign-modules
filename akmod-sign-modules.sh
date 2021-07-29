@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # inspired by https://gist.github.com/xenithorb/df08970b9e70bb3c6576e1fd91460afe
 
@@ -13,7 +13,7 @@ DIE () {
 	exit 1
 }
 
-if [ -z "$1" ]; then
+if [[ -z $1 ]]; then
 	DIE "usage: $0 <kernel_version>"
 fi
 
