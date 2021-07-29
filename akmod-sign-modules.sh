@@ -36,6 +36,10 @@ find "${KMOD_RPM_DIR}" -name "*${KERNEL_VER}*.rpm" |
 LOG "Found ${#kmods[*]} modules"
 
 for kmod in "${kmods[@]}"; do
+	if ! [[ -f $kmod ]]; then
+		echo "skipping $kmod (no such module)" >&2
+		continue
+	fi
 	LOG "Signing $kmod"
 	$SIGN $MOK_HASH $MOK_KEY $MOK_CRT "$kmod"
 done
